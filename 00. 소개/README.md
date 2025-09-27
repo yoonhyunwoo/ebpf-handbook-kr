@@ -4,3 +4,6 @@
 방화벽 소프트웨어를 설계하는 엔지니어가 되어봅시다. 패킷 하나를 유저레벨에서 처리하려면 Protocol Layer, Network Layer등 수많은 레이어를 거쳐야 합니다. 이 과정에서는 버퍼로의 데이터 복사등 리소스가 소모됩니다. 
 
 그러나 이것이 커널레벨에서만 동작할수 있도록 한다면 이야기는 달라집니다. DROP할 패킷의 패턴을 알고있다면 커널의 복잡한 네트워크 스택을 태울 필요 없이 드라이버 레벨에서만 처리할 수 있습니다. 별 것 아닌 것처럼 보일수도 있지만 이것이 불러오는 성능 차이는 어마무시합니다. [클라우드플레어의 블로그](https://blog.cloudflare.com/ko-kr/how-to-drop-10-million-packets/)에 따르면 nftables ingress보다 약 9배 이상의 성능 향상을 이뤄낼 수 있습니다.
+
+## 개발환경 셋팅
+sudo dnf install -y make clang llvm libbpf libbpf-devel elfutils-libelf-devel kernel-devel-$(uname -r) git
